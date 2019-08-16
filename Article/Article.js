@@ -87,8 +87,54 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
+function menuCreator(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  const menuDiv = document.createElement('div');
+  const h2 = document.createElement('h2');
+  const pN = document.createElement('p');
+  const p1 =document.createElement('p');
+  const p2 =document.createElement('p');
+  const p3 =document.createElement('p');
+  const span = document.createElement('span');
+
+  menuDiv.classList.add('article');
+  p1.classList.add('date');
+  p2.classList.add('date');
+  p3.classList.add('date'); 
+  span.classList.add('expandButton');
+
+  h2.textContent = title;
+  p1.textContent = date;
+  p2.textContent = date;
+  p3.textContent = date;
+
+span.addEventListener('click', () => {
+  menuDiv.classList.toggle(article-open)
+})
+
+  menuDiv.appendChild(h2);
+  menuDiv.appendChild(p1);
+  menuDiv.appendChild(p2);
+  menuDiv.appendChild(p3);
+  menuDiv.appendChild(span);
+
+  return menuDiv
+}
+
+  const article = document.querySelector('.articles')
+
+  const newData = data.map((evt) => {
+ return menuCreator(evt.title, evt.date, evt.firstParagraph, evt.secondParagraph, evt.thirdParagraph)
+})
+
+
+// newData.push("title: Components with Lambda","date: August 15th 2019","firstParagraph: lajdalj","secondparagraph: lajdlsjd ","thirdParagraph: kajfksjfkj ")
+
+newData.forEach((e) => {
+  article.appendChild(e);
+}) 
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
+  
   
   <div class="article">
     <h2>{title of the article}</h2>
@@ -102,6 +148,12 @@ const data = [
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
+
+Exmple code snippets
+  const artdata = data.map((evt) => {
+ return articles(evt.title, evt.date, evt.firstParagraph, evt.secondParagraph, evt.thirdParagraph)
+})
+
 
   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
 
