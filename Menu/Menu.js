@@ -8,8 +8,43 @@ let menuItems = [
   'Music',
   'Log Out'
 ];
+// const menuButton = document.querySelector('.menu-button');
+// const menu1 = menuCreator(menuItems);
+const menuButton = document.querySelector('.menu-button');
 
-/* 
+    function menuCreator(items){
+
+      const menuDiv = document.createElement('div'); // creates menu div 
+      const list = document.createElement('ul'); // creates ul meant to be inside menu div
+
+      menuDiv.classList.add('menu') // adds menu class to menu div
+
+      items.forEach(e => {
+        const listItems = document.createElement('li'); // for each item in given array  create a list element
+        listItems.textContent = e; // textcontent = each e in given array
+        list.appendChild(listItems); // appends li into ul
+        
+        })
+
+        menuDiv.appendChild(list) // appends ul to menu div
+
+        menuButton.addEventListener('click' ,() => {
+                menuDiv.classList.toggle('menu--open');
+                console.log('This Works!')
+        })
+
+        return menuDiv; // returns menu
+      }
+
+     
+
+    const header = document.querySelector('.header');
+    
+
+    header.appendChild(menuCreator(menuItems));
+/*
+
+      
 
   Step 1: Write a function that will create a menu component as seen below:
 

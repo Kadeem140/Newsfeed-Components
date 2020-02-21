@@ -87,8 +87,10 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
-function menuCreator(title, date, firstParagraph, secondParagraph, thirdParagraph) {
-  const menuDiv = document.createElement('div');
+
+// if parameters aren't being used in the function the have a dim color.
+function articleCreator(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  const articleDiv = document.createElement('div');
   const h2 = document.createElement('h2');
   const pN = document.createElement('p');
   const p1 =document.createElement('p');
@@ -96,42 +98,44 @@ function menuCreator(title, date, firstParagraph, secondParagraph, thirdParagrap
   const p3 =document.createElement('p');
   const span = document.createElement('span');
 
-  menuDiv.classList.add('article');
-  p1.classList.add('date');
-  p2.classList.add('date');
-  p3.classList.add('date'); 
+  articleDiv.classList.add('article');
+  pN.classList.add('date')
   span.classList.add('expandButton');
 
   h2.textContent = title;
-  p1.textContent = date;
-  p2.textContent = date;
-  p3.textContent = date;
+  pN.textContent = date;
+  p1.textContent = firstParagraph;
+  p2.textContent = secondParagraph;
+  p3.textContent = thirdParagraph;
+  span.textContent = "Expand!";
 
+  
 span.addEventListener('click', () => {
-  menuDiv.classList.toggle(article-open)
+  console.log('This works!');
+  articleDiv.classList.toggle('article-open')
+  
 })
 
-  menuDiv.appendChild(h2);
-  menuDiv.appendChild(p1);
-  menuDiv.appendChild(p2);
-  menuDiv.appendChild(p3);
-  menuDiv.appendChild(span);
-
-  return menuDiv
+  articleDiv.appendChild(h2);
+  articleDiv.appendChild(pN);
+  articleDiv.appendChild(p1);
+  articleDiv.appendChild(p2);
+  articleDiv.appendChild(p3);
+  articleDiv.appendChild(span);
+  
+  return articleDiv
 }
 
   const article = document.querySelector('.articles')
 
   const newData = data.map((evt) => {
- return menuCreator(evt.title, evt.date, evt.firstParagraph, evt.secondParagraph, evt.thirdParagraph)
+ return articleCreator(evt.title, evt.date, evt.firstParagraph, evt.secondParagraph, evt.thirdParagraph)
 })
-
-
-// newData.push("title: Components with Lambda","date: August 15th 2019","firstParagraph: lajdalj","secondparagraph: lajdlsjd ","thirdParagraph: kajfksjfkj ")
 
 newData.forEach((e) => {
   article.appendChild(e);
 }) 
+
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
@@ -149,12 +153,6 @@ newData.forEach((e) => {
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
 
-Exmple code snippets
-  const artdata = data.map((evt) => {
- return articles(evt.title, evt.date, evt.firstParagraph, evt.secondParagraph, evt.thirdParagraph)
-})
-
-
   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
 
   Step 3: return the entire component.
@@ -164,3 +162,30 @@ Exmple code snippets
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+
+
+
+// function financialAccess (dollarAmount){ 
+// 	return new Promise ((resolve, reject) => {
+// 			if (dollarAmount >= 100){
+//         resolve (console.log("You can withdraw this amount of money!"))
+//        } 
+//        else { 
+//          reject (console.log("You cannot withdraw this amount of money!"))
+//         };
+      
+
+// 	})
+// };
+
+// // financialAccess()
+
+// // 	.then((allow) => {
+// // 	console.log(allow);
+// // })
+// // 	.catch((deny) => {
+// //     // Promise.preventDefault();
+// // 	console.log(deny);
+// // })
+
+// financialAccess(20);
